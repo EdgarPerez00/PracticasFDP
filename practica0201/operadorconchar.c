@@ -11,11 +11,11 @@ int main(int argc, char *argv[]) {
     signed char cx = rand() % MAX_CHAR;
     signed char cy = rand() % MAX_CHAR;
 
-    long vuelta = 0;
+    long recorrido = 0;
 
     char c;
     short s;
-    int i;
+    int i, vuelta;
     long l;
     float f_var;
     double d;
@@ -25,78 +25,91 @@ int main(int argc, char *argv[]) {
     
     printf("cx = cx * cy\n");
     printf("%d * %d | %c * %c.\n", (int)cx, (int)cy, cx , cy);
+    
     cx = cx * cy; 
-    vuelta = (long)(cx *cy);
+    recorrido = (long)(cx *cy);
+    vuelta = (recorrido < 0) ? ( - recorrido / 256) : (recorrido / 256);
     printf("cx = %d | %c\n", (int)cx, cx);
-    printf("valor teorico de cx * cy: %ld\n", vuelta);
-    if (vuelta > 127) {
+    printf("valor numerico de cx * cy: %ld\n", recorrido);
+    if (recorrido > 127) {
         printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta < -128) {
+    } else if (recorrido < -128) {
         printf("Desbordamiento por la izquierda\n");
     }
+    printf("dio vuelta %d veces\n", vuelta);
     printf("\n");
 
     printf("cx = cx / cy\n");
     printf("%d / %d | %c / %c.\n", (int)cx, (int)cy, cx, cy);
     if (cy != 0) {
-        vuelta = (long)cx / cy;
+        recorrido = (long)cx / cy;
         cx = cx / cy;
+        vuelta = (recorrido < 0) ? ( - recorrido / 256) : (recorrido / 256);
         printf("cx = %d | %c\n", (int)cx, cx);
-        printf("valor teorico de cx / cy: %ld\n", vuelta);
-        if (vuelta > 127) {
+        printf("valor numerico de cx / cy: %ld\n", recorrido);
+        if (recorrido > 127) {
             printf("Desbordamiento por la derecha.\n");
-        } else if (vuelta < -128) {
+        } else if (recorrido < -128) {
             printf("Desbordamiento por la izquierda\n");
         }
     } else {
         printf("Error: Division por cero.\n");
     }
+    printf("dio vuelta %d veces\n", vuelta);
     printf("\n");
 
 
     printf("cx = cx %% cy\n");
     printf("%d %% %d | %c %% %c.\n", (int)cx, (int)cy, cx, cy);
     if (cy != 0) {
-        vuelta = (long)cx % cy;
+        recorrido = (long)cx % cy;
         cx = cx % cy;
+        vuelta = (recorrido < 0) ? ( - recorrido / 256) : (recorrido / 256);
+
         printf("cx = %d | %c\n", (int)cx, cx);
-        printf("valor teorico de cx %% cy: %ld\n", vuelta);
-        if (vuelta > 127) {
+        printf("valor numerico de cx %% cy: %ld\n", recorrido);
+        if (recorrido > 127) {
             printf("Desbordamiento por la derecha.\n");
-        } else if (vuelta < -128) {
+        } else if (recorrido < -128) {
             printf("Desbordamiento por la izquierda\n");
         }
     } else {
         printf("Error: Modulo por cero.\n");
     }
+    printf("dio vuelta %d veces", vuelta);
     printf("\n");
 
 
 
     printf("cx = cx + cy\n");
     printf("%d + %d | %c + %c.\n", (int)cx, (int)cy, cx, cy);
-    vuelta = (long)cx + cy;
+    recorrido = (long)cx + cy;
     cx = cx + cy;
+    vuelta = (recorrido < 0) ? ( - recorrido / 256) : (recorrido / 256);
+
     printf("cx = %d | %c\n", (int)cx, cx);
-    printf("valor teorico de cx + cy: %ld\n", vuelta);
-    if (vuelta > 127) {
+    printf("valor numerico de cx + cy: %ld\n", recorrido);
+    if (recorrido > 127) {
         printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta < -128) {
+    } else if (recorrido < -128) {
         printf("Desbordamiento por la izquierda\n");
     }
+    printf("dio vuelta %d veces", vuelta);
     printf("\n");
 
     printf("cx = cx - cy\n");
     printf("%d - %d | %c - %c.\n", (int)cx, (int)cy, cx, cy);
-    vuelta = (long)cx - cy;
+    recorrido = (long)cx - cy;
     cx = cx - cy;
+    vuelta = (recorrido < 0) ? ( - recorrido / 256) : (recorrido / 256);
     printf("cx = %d | %c\n", (int)cx, cx);
-    printf("valor teorico de cx - cy: %ld\n", vuelta);
-    if (vuelta > 127) {
+    printf("valor numerico de cx - cy: %ld\n", recorrido);
+    if (recorrido > 127) {
         printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta < -128) {
+    } else if (recorrido < -128) {
         printf("Desbordamiento por la izquierda\n");
     }
+    printf("dio vuelta %d veces", vuelta);
     printf("\n");
     
    

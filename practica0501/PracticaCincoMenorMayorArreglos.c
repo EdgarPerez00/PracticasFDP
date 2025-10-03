@@ -62,11 +62,15 @@ void imprimirResultados() {
 }
 
 
+void ejecutarProceso() {
+    leerNumeros();
+    imprimirResultados();
+}
+
+
 int main(int argc, char *argv[]) {
 
-    leerNumeros();
-
-    imprimirResultados();
+    ejecutarProceso();    
 
     return 0;
 }

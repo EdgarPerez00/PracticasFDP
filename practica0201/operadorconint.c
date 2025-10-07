@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
     int ix = rand() % MAX_INT - MIN_INT;
     int iy = rand() % MAX_INT - MIN_INT;
 
-    long long vuelta_ll = 0;
 
     char c;
     short s;
@@ -26,24 +25,16 @@ int main(int argc, char *argv[]) {
 
     printf("ix = ix * iy\n");
     printf("%d * %d.\n", ix, iy);
-    vuelta_ll = (long long)ix * iy;
     ix = ix * iy; 
     printf("ix = %d\n", ix);
-    printf("valor teorico de ix * iy: %lld\n", vuelta_ll);
-    if (vuelta_ll > INT_MAX) {
-        printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta_ll < INT_MIN) {
-        printf("Desbordamiento por la izquierda\n");
-    }
     printf("\n");
 
     printf("ix = ix / iy\n");
     printf("%d / %d.\n", ix, iy);
     if (iy != 0) {
-        vuelta_ll = (long long)ix / iy;
         ix = ix / iy;
         printf("ix = %d\n", ix);
-        printf("valor teorico de ix / iy: %lld\n", vuelta_ll);
+        printf("\n");
     } else {
         printf("Error: Division por cero.\n");
     }
@@ -52,10 +43,9 @@ int main(int argc, char *argv[]) {
     printf("ix = ix %% iy\n");
     printf("%d %% %d.\n", ix, iy);
     if (iy != 0) {
-        vuelta_ll = (long long)ix % iy;
         ix = ix % iy;
         printf("ix = %d\n", ix);
-        printf("valor teorico de ix %% iy: %lld\n", vuelta_ll);
+        printf("\n");
     } else {
         printf("Error: Modulo por cero.\n");
     }
@@ -63,28 +53,14 @@ int main(int argc, char *argv[]) {
 
     printf("ix = ix + iy\n");
     printf("%d + %d.\n", ix, iy);
-    vuelta_ll = (long long)ix + iy;
     ix = ix + iy;
     printf("ix = %d\n", ix);
-    printf("valor teorico de ix + iy: %lld\n", vuelta_ll);
-    if (vuelta_ll > INT_MAX) {
-        printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta_ll < INT_MIN) {
-        printf("Desbordamiento por la izquierda\n");
-    }
     printf("\n");
 
     printf("ix = ix - iy\n");
     printf("%d - %d.\n", ix, iy);
-    vuelta_ll = (long long)ix - iy;
     ix = ix - iy;
     printf("ix = %d\n", ix);
-    printf("valor teorico de ix - iy: %lld\n", vuelta_ll);
-    if (vuelta_ll > INT_MAX) {
-        printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta_ll < INT_MIN) {
-        printf("Desbordamiento por la izquierda\n");
-    }
     printf("\n");
 
     ix++;

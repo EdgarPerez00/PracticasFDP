@@ -11,12 +11,11 @@ int main(int argc, char *argv[]) {
     signed char cx = rand() % MAX_CHAR;
     signed char cy = rand() % MAX_CHAR;
 
-    long recorrido = 0;
 
     char c;
     short s;
     int i, vuelta;
-    long l;
+    long l, recorrido;
     float f_var;
     double d;
 

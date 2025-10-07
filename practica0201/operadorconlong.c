@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
     long lx = rand() % MAX_LONG - MIN_LONG;
     long ly = rand();
 
-    long long vuelta_ll = 0;
 
     char c;
     short s;
@@ -26,24 +25,13 @@ int main(int argc, char *argv[]) {
 
     printf("lx = lx * ly\n");
     printf("%ld * %ld.\n", lx, ly);
-    vuelta_ll = (long long)lx * ly;
     lx = lx * ly; 
     printf("lx = %ld\n", lx);
-    printf("valor teorico de lx * ly: %lld\n", vuelta_ll);
-    if (vuelta_ll > LONG_MAX) {
-        printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta_ll < LONG_MIN) {
-        printf("Desbordamiento por la izquierda\n");
-    }
-    printf("\n");
 
     printf("lx = lx / ly\n");
     printf("%ld / %ld.\n", lx, ly);
     if (ly != 0) {
-        vuelta_ll = (long long)lx / ly;
-        lx = lx / ly;
         printf("lx = %ld\n", lx);
-        printf("valor teorico de lx / ly: %lld\n", vuelta_ll);
     } else {
         printf("Error: Division por cero.\n");
     }
@@ -52,10 +40,8 @@ int main(int argc, char *argv[]) {
     printf("lx = lx %% ly\n");
     printf("%ld %% %ld.\n", lx, ly);
     if (ly != 0) {
-        vuelta_ll = (long long)lx % ly;
         lx = lx % ly;
         printf("lx = %ld\n", lx);
-        printf("valor teorico de lx %% ly: %lld\n", vuelta_ll);
     } else {
         printf("Error: Modulo por cero.\n");
     }
@@ -63,29 +49,13 @@ int main(int argc, char *argv[]) {
 
     printf("lx = lx + ly\n");
     printf("%ld + %ld.\n", lx, ly);
-    vuelta_ll = (long long)lx + ly;
     lx = lx + ly;
     printf("lx = %ld\n", lx);
-    printf("valor teorico de lx + ly: %lld\n", vuelta_ll);
-    if (vuelta_ll > LONG_MAX) {
-        printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta_ll < LONG_MIN) {
-        printf("Desbordamiento por la izquierda\n");
-    }
-    printf("\n");
 
     printf("lx = lx - ly\n");
     printf("%ld - %ld.\n", lx, ly);
-    vuelta_ll = (long long)lx - ly;
     lx = lx - ly;
     printf("lx = %ld\n", lx);
-    printf("valor teorico de lx - ly: %lld\n", vuelta_ll);
-    if (vuelta_ll > LONG_MAX) {
-        printf("Desbordamiento por la derecha.\n");
-    } else if (vuelta_ll < LONG_MIN) {
-        printf("Desbordamiento por la izquierda\n");
-    }
-    printf("\n");
 
     lx++;
     printf("lx++ = %ld\n\n", lx);

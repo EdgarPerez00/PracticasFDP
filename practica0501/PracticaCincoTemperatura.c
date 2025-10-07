@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h> 
 #include <math.h>
 
-// Se definen constantes
+// Constantes 
 #define MAX_T_IDX 17
 #define MAX_V_IDX 8
 #define LIM_T 10.0
@@ -9,134 +10,90 @@
 #define UMBRAL_EXT -35.0
 #define MARCADOR_NULO -99.9
 
-// Variables Globales 
-float temperaturas[MAX_T_IDX] = {
-    10.0, 7.5, 5.0, 2.5, 0.0, -2.5,
-    -5.0, -7.5, -10.0, -12.5, -15.0,
-    -17.5, -20.0, -22.5, -25.0, -27.5,
-    -30.0
-};
+// Punteros para los arreglos dinámicos
+float *temperaturas;
+float *velocidades;
+float **tablaSensacion; 
+char *riesgos[] = {"Riesgo de enfriamiento moderado", "Riesgo de enfriamiento grave", "Riesgo de enfriamiento extremo"};
 
-float velocidades[MAX_V_IDX] = {
-    8.0, 16.0, 24.0, 32.0,
-     40.0, 48.0, 56.0, 64.0
-};
-
-float tablaSensacion[MAX_V_IDX][MAX_T_IDX];
-
-char *riesgos[] = {
-    "Riesgo de enfriamiento moderado", 
-    "Riesgo de enfriamiento grave", 
-    "Riesgo de enfriamiento extremo"
-};
-
-
-// Se inicializa el arreglo de sensacion termica
-void inicializarParteUno() {
-    float datos[4][MAX_T_IDX] = {
-        {
-            7.5, 5.0, 2.5, 0.0, -2.5, 
-            -5.0, -7.5, -10.0, -12.5,
-            -15.0, -17.5, -20.0, -22.5, 
-            -25.0, -27.5, -30.0, -32.5
-        },
-        
-        {
-            5.0, 2.5, 0.0, -2.5, -5.0, 
-            -7.5, -10.0, -12.5, -15.0,
-            -17.5, -20.0, -25.0, -27.5,
-            -32.5, -35.0, -37.5, -40.0
-        },
-        
-        {
-            2.5, 0.0, -5.0, -7.5, -10.0, 
-            -12.5, -17.5, -20.0, -25.0, 
-            -27.5, -32.5, -35.0, -37.5, 
-            -42.5, -45.0, -47.5, -52.5
-        },
-        
-        {
-            0.0, -2.5, -7.5, -10.0, -12.5, 
-            -17.5, -22.5, -25.0, -30.0, 
-            -32.5, -35.0, -37.5, -42.5, 
-            -47.5, -50.0, -52.5, -57.5
-        }
-    };
-    int i;
-    int j;
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < MAX_T_IDX; j++) {
-            tablaSensacion[i][j] = datos[i][j];
-        }
-    }
-}
-
-void inicializarParteDos() {
-    // Fila 4 (40 km/h) a Fila 7 (64 km/h)
-    float datos[4][MAX_T_IDX] = {
-        {0.0, -5.0, -7.5, -10.0, -15.0, -17.5, -22.5, -25.0, -30.0, -32.5, -37.5, -40.0, -45.0, -47.5, -52.5, -55.0, -60.0},
-        {-2.5, -5.0, -10.0, -12.5, -17.5, -20.0, -25.0, -27.5, -32.5, -35.0, -40.0, -42.5, -47.5, -50.0, -55.0, -57.5, -62.5},
-        {-2.5, -7.5, -10.0, -12.5, -17.5, -20.0, -25.0, -30.0, -30.0, -35.0, -42.5, -45.0, -50.0, -52.5, -55.0, -60.0, -67.5},
-        {-2.5, -7.5, -10.0, -15.0, -20.0, -22.5, -27.5, -30.0, -35.0, -37.5, -42.5, -45.0, -50.0, -55.0, -60.0, -62.5, -70.0}
-    };
-    int i;
-    int j;
-    for (i = 0; i < 4; i++) {
-        for (j = 0; j < MAX_T_IDX; j++) {
-            tablaSensacion[i + 4][j] = datos[i][j];
-        }
-    }
-}
-
-void configurarDatosIniciales() {
-    inicializarParteUno();
-    inicializarParteDos();
-}
-
-// -----------------------------------------------------------------------------
-// --- Funciones de Calculo ---
-// -----------------------------------------------------------------------------
-
+// Formula corregida 
 float calcularWCI(float t, float v) {
-    float STfrio;
     if (v < 4.8) {
-        printf("ADVERTENCIA: La formula no es valida para velocidades menores a 4.8 km/h.\n");
-        return t;
+        return MARCADOR_NULO;
     }
-    STfrio = 13.12 + (0.6215 * t) - (11.37 * pow(v, 0.16)) + (0.3965 * t * pow(v, 0.16));
-    return STfrio;
+    return 13.12 + (0.6215 * t) - (11.37 * pow(v, 0.16)) + (0.3965 * t * pow(v, 0.16));
 }
 
-// -----------------------------------------------------------------------------
-// --- Funciones de Reporte y Busqueda ---
-// -----------------------------------------------------------------------------
+//funciones para poblar de datos la tabla de temperaturas y velocidades
+void poblarTemperaturas() {
+    float temps[MAX_T_IDX] = {10.0, 7.5, 5.0, 2.5, 0.0, -2.5, -5.0, -7.5, -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0};
+    for (int i = 0; i < MAX_T_IDX; i++) {
+        temperaturas[i] = temps[i];
+    }
+}
 
+void poblarVelocidades() {
+    float vels[MAX_V_IDX] = {8.0, 16.0, 24.0, 32.0, 40.0, 48.0, 56.0, 64.0};
+    for (int i = 0; i < MAX_V_IDX; i++) {
+        velocidades[i] = vels[i];
+    }
+}
+
+// funcion para calcular y llenar la tabla de sensacion térmica
+void poblarTablaSensacion() {
+    for (int i = 0; i < MAX_V_IDX; i++) {
+        for (int j = 0; j < MAX_T_IDX; j++) {
+            tablaSensacion[i][j] = calcularWCI(temperaturas[j], velocidades[i]);
+        }
+    }
+}
+
+// funcion para configurar y poblar todos los datos
+void configurarDatosIniciales() {
+    // Asignacion de memoria para los arreglos
+    temperaturas = (float *)malloc(MAX_T_IDX * sizeof(float));
+    velocidades = (float *)malloc(MAX_V_IDX * sizeof(float));
+    tablaSensacion = (float **)malloc(MAX_V_IDX * sizeof(float *));
+    for (int i = 0; i < MAX_V_IDX; i++) {
+        tablaSensacion[i] = (float *)malloc(MAX_T_IDX * sizeof(float));
+    }
+
+    // Comprobacion de que la memoria fue asignada
+    if (temperaturas == NULL || velocidades == NULL || tablaSensacion == NULL) {
+        printf("Error: No se pudo asignar memoria.\n");
+        exit(1);
+    }
+    
+    // Llenar los arreglos con los datos
+    poblarTemperaturas();
+    poblarVelocidades();
+    poblarTablaSensacion(); // La tabla se calcula, no se hardcodea
+}
+
+// funciones para imprimir la tabla
 void imprimirSeparador() {
-    int k;
     printf("-------|");
-    for (k = 0; k < MAX_T_IDX; k++) {
+    for (int k = 0; k < MAX_T_IDX; k++) {
         printf("---------|");
     }
     printf("\n");
 }
 
 void imprimirEncabezado() {
-    int j;
     printf("\n------------------- TABLA DE SENSACION TERMICA (W) -------------------\n");
     printf("Viento |");
-    for (j = 0; j < MAX_T_IDX; j++) {
+    for (int j = 0; j < MAX_T_IDX; j++) {
         printf("%6.1f C |", temperaturas[j]);
     }
     printf("\n");
 }
 
 void imprimirFila(int i) {
-    int j;
     printf("%6.0f |", velocidades[i]);
-    for (j = 0; j < MAX_T_IDX; j++) {
+    for (int j = 0; j < MAX_T_IDX; j++) {
         float valor = tablaSensacion[i][j];
         if (valor == MARCADOR_NULO) {
-            printf("    -    |");
+            printf("   N/A   |");
         } else {
             printf("  %6.1f |", valor);
         }
@@ -145,10 +102,9 @@ void imprimirFila(int i) {
 }
 
 void imprimirTabla() {
-    int i;
     imprimirEncabezado();
     imprimirSeparador();
-    for (i = 0; i < MAX_V_IDX; i++) {
+    for (int i = 0; i < MAX_V_IDX; i++) {
         imprimirFila(i);
     }
     imprimirSeparador();
@@ -158,69 +114,40 @@ void imprimirTabla() {
     printf("  W <= %.1f: %s\n", UMBRAL_EXT, riesgos[2]);
 }
 
+// funciones para realizar consultas
 char* obtenerRiesgo(float W) {
     if (W > UMBRAL_GRV) return riesgos[0];
     if (W > UMBRAL_EXT) return riesgos[1];
     return riesgos[2];
 }
 
-float buscarEnTabla(float t, float v, char **riesgoPtr) {
-    int i;
-    int j;
-    float resultado = MARCADOR_NULO;
-
-    for (i = 0; i < MAX_V_IDX; i++) {
-        if (velocidades[i] == v) {
-            for (j = 0; j < MAX_T_IDX; j++) {
-                if (temperaturas[j] == t) {
-                    resultado = tablaSensacion[i][j];
-                    if (resultado != MARCADOR_NULO) {
-                        *riesgoPtr = obtenerRiesgo(resultado);
-                    }
-                    return resultado;
-                }
-            }
-        }
-    }
-    return MARCADOR_NULO;
-}
-
 void realizarConsulta() {
-    float t;
-    float v;
-    float W;
+    float t, v, W;
     char *riesgoMensaje;
 
     printf("\n--- Consulta de Sensacion Termica ---\n");
-    printf("Ingrese temperatura (Celsius, max %.1f): ", LIM_T);
+    printf("Ingrese temperatura (Celsius): ");
     scanf("%f", &t);
     printf("Ingrese velocidad del viento (km/h): ");
     scanf("%f", &v);
 
     if (t > LIM_T) {
-        printf("ERROR: La temperatura %.1fC excede la restriccion de %.1fC.\n", t, LIM_T);
-        return;
+        printf("AVISO: La temperatura %.1fC es mayor que el limite de la tabla (%.1fC).\n", t, LIM_T);
     }
-
-    W = buscarEnTabla(t, v, &riesgoMensaje);
-
-    if (W != MARCADOR_NULO) {
-        printf("\nRESULTADO (Tabla):\n");
-    } else {
-        printf("\nRESULTADO (Calculo):\n");
-        W = calcularWCI(t, v);
-        riesgoMensaje = obtenerRiesgo(W);
-    }
+    
+    printf("\nRESULTADO (Calculo Directo):\n");
+    W = calcularWCI(t, v);
 
     if (W == MARCADOR_NULO) {
-        printf("Los valores no estan definidos en la tabla para esas condiciones.\n");
+        printf("La velocidad del viento es demasiado baja para el calculo.\n");
     } else {
+        riesgoMensaje = obtenerRiesgo(W);
         printf("Sensacion Termica: %.2f C\n", W);
         printf("Riesgo de Congelacion: %s\n", riesgoMensaje);
     }
 }
 
-
+// funciones para el menu
 void mostrarMenu() {
     int opcion;
     do {
@@ -231,8 +158,9 @@ void mostrarMenu() {
         printf("Seleccione una opcion: ");
 
         if (scanf("%d", &opcion) != 1) {
-            printf("Entrada no valida.\n");
-            break;
+            printf("Entrada no valida. Saliendo.\n");
+            while(getchar()!='\n'); // Limpia el buffer
+            opcion = 3; 
         }
 
         switch (opcion) {
@@ -251,9 +179,20 @@ void mostrarMenu() {
     } while (opcion != 3);
 }
 
+// funcion para liberar memoria
+void liberarMemoria() {
+    free(temperaturas);
+    free(velocidades);
+    for (int i = 0; i < MAX_V_IDX; i++) {
+        free(tablaSensacion[i]);
+    }
+    free(tablaSensacion);
+}
 
+// funcion principal
 int main(int argc, char *argv[]) {
     configurarDatosIniciales();
     mostrarMenu();
+    liberarMemoria();
     return 0;
 }

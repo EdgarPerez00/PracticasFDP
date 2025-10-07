@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-// --- Constantes (Español, abreviado, mayúsculas) ---
+// Se definen constantes
 #define MAX_T_IDX 17
 #define MAX_V_IDX 8
 #define LIM_T 10.0
@@ -9,32 +9,58 @@
 #define UMBRAL_EXT -35.0
 #define MARCADOR_NULO -99.9
 
-// --- Variables Globales (camelCase) ---
-float temperaturas[MAX_T_IDX] = {10.0, 7.5, 5.0, 2.5, 0.0, -2.5, -5.0, -7.5, -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0};
-float velocidades[MAX_V_IDX] = {8.0, 16.0, 24.0, 32.0, 40.0, 48.0, 56.0, 64.0};
+// Variables Globales 
+float temperaturas[MAX_T_IDX] = {
+    10.0, 7.5, 5.0, 2.5, 0.0, -2.5,
+    -5.0, -7.5, -10.0, -12.5, -15.0,
+    -17.5, -20.0, -22.5, -25.0, -27.5,
+    -30.0
+};
+
+float velocidades[MAX_V_IDX] = {
+    8.0, 16.0, 24.0, 32.0,
+     40.0, 48.0, 56.0, 64.0
+};
+
 float tablaSensacion[MAX_V_IDX][MAX_T_IDX];
-char *riesgos[] = {"Riesgo de enfriamiento moderado", "Riesgo de enfriamiento grave", "Riesgo de enfriamiento extremo"};
+
+char *riesgos[] = {
+    "Riesgo de enfriamiento moderado", 
+    "Riesgo de enfriamiento grave", 
+    "Riesgo de enfriamiento extremo"
+};
 
 
-// -----------------------------------------------------------------------------
-// --- Funciones de Inicializacion de Datos ---
-// -----------------------------------------------------------------------------
-
+// Se inicializa el arreglo de sensacion termica
 void inicializarParteUno() {
-    // Fila 0 (8 km/h) a Fila 3 (32 km/h)
-    // 17 ELEMENTOS por fila (corresponde a MAX_T_IDX)
     float datos[4][MAX_T_IDX] = {
-        // 8 km/h
-        {7.5, 5.0, 2.5, 0.0, -2.5, -5.0, -7.5, -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0, -32.5},
+        {
+            7.5, 5.0, 2.5, 0.0, -2.5, 
+            -5.0, -7.5, -10.0, -12.5,
+            -15.0, -17.5, -20.0, -22.5, 
+            -25.0, -27.5, -30.0, -32.5
+        },
         
-        // 16 km/h (QUITADO EL VALOR EXTRA -45.0)
-        {5.0, 2.5, 0.0, -2.5, -5.0, -7.5, -10.0, -12.5, -15.0, -17.5, -20.0, -25.0, -27.5, -32.5, -35.0, -37.5, -40.0},
+        {
+            5.0, 2.5, 0.0, -2.5, -5.0, 
+            -7.5, -10.0, -12.5, -15.0,
+            -17.5, -20.0, -25.0, -27.5,
+            -32.5, -35.0, -37.5, -40.0
+        },
         
-        // 24 km/h
-        {2.5, 0.0, -5.0, -7.5, -10.0, -12.5, -17.5, -20.0, -25.0, -27.5, -32.5, -35.0, -37.5, -42.5, -45.0, -47.5, -52.5},
+        {
+            2.5, 0.0, -5.0, -7.5, -10.0, 
+            -12.5, -17.5, -20.0, -25.0, 
+            -27.5, -32.5, -35.0, -37.5, 
+            -42.5, -45.0, -47.5, -52.5
+        },
         
-        // 32 km/h
-        {0.0, -2.5, -7.5, -10.0, -12.5, -17.5, -22.5, -25.0, -30.0, -32.5, -35.0, -37.5, -42.5, -47.5, -50.0, -52.5, -57.5}
+        {
+            0.0, -2.5, -7.5, -10.0, -12.5, 
+            -17.5, -22.5, -25.0, -30.0, 
+            -32.5, -35.0, -37.5, -42.5, 
+            -47.5, -50.0, -52.5, -57.5
+        }
     };
     int i;
     int j;
@@ -72,13 +98,13 @@ void configurarDatosIniciales() {
 // -----------------------------------------------------------------------------
 
 float calcularWCI(float t, float v) {
-    float W;
+    float STfrio;
     if (v < 4.8) {
         printf("ADVERTENCIA: La formula no es valida para velocidades menores a 4.8 km/h.\n");
         return t;
     }
-    W = 13.12 + (0.6215 * t) - (11.37 * pow(v, 0.16)) + (0.3965 * t * pow(v, 0.16));
-    return W;
+    STfrio = 13.12 + (0.6215 * t) - (11.37 * pow(v, 0.16)) + (0.3965 * t * pow(v, 0.16));
+    return STfrio;
 }
 
 // -----------------------------------------------------------------------------
@@ -99,7 +125,7 @@ void imprimirEncabezado() {
     printf("\n------------------- TABLA DE SENSACION TERMICA (W) -------------------\n");
     printf("Viento |");
     for (j = 0; j < MAX_T_IDX; j++) {
-        printf(" %6.1f C |", temperaturas[j]);
+        printf("%6.1f C |", temperaturas[j]);
     }
     printf("\n");
 }
@@ -112,7 +138,7 @@ void imprimirFila(int i) {
         if (valor == MARCADOR_NULO) {
             printf("    -    |");
         } else {
-            printf(" %6.1f |", valor);
+            printf("  %6.1f |", valor);
         }
     }
     printf("\n");

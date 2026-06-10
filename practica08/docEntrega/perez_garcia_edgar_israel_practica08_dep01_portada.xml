@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+            xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing">
+    <w:body>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="240" w:after="120"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:b/><w:sz w:val="28"/></w:rPr>
+                <w:t>INSTITUTO POLITECNICO NACIONAL</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="240"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:b/><w:sz w:val="48"/><w:color w:val="003366"/></w:rPr>
+                <w:t>ESCOM</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="240" w:after="240"/>
+            </w:pPr>
+            <w:r>
+                <w:drawing>
+                    <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251658240" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
+                        <wp:simplePos x="0" y="0"/>
+                        <wp:positionH relativeFrom="column"><wp:align>center</wp:align></wp:positionH>
+                        <wp:positionV relativeFrom="paragraph"><wp:posOffset>0</wp:posOffset></wp:positionV>
+                        <wp:extent cx="914400" cy="914400"/>
+                        <wp:effectExtent l="0" t="0" r="0" b="0"/>
+                        <wp:wrapNone/>
+                        <wp:docPr id="1" name="Logo 1"/>
+                    </wp:anchor>
+                </w:drawing>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="400" w:after="240"/>
+                <w:pBdr><w:top w:val="single" w:sz="12" w:space="1" w:color="0033CC"/></w:pBdr>
+            </w:pPr>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="400" w:after="240"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:b/><w:sz w:val="56"/><w:color w:val="8B3A62"/></w:rPr>
+                <w:t>PRACTICA 08</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="120"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:b/><w:sz w:val="36"/><w:color w:val="003366"/></w:rPr>
+                <w:t>Recursividad</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="400"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:sz w:val="24"/></w:rPr>
+                <w:t>Funciones recursivas</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:spacing w:before="800" w:after="240"/>
+            </w:pPr>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="120"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:b/><w:sz w:val="24"/></w:rPr>
+                <w:t>Pérez García Edgar Israel</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="120"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:sz w:val="22"/></w:rPr>
+                <w:t>Fundamentos de Programación</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="120"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:sz w:val="22"/></w:rPr>
+                <w:t>Ingeniería en Sistemas Computacionales</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="0" w:after="600"/>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:sz w:val="22"/></w:rPr>
+                <w:t>Instituto Politécnico Nacional</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:spacing w:before="400" w:after="0"/>
+                <w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="0033CC"/></w:pBdr>
+            </w:pPr>
+            <w:r>
+                <w:rPr><w:sz w:val="20"/></w:rPr>
+                <w:t>08 de junio de 2026</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:pageBreakBefore/>
+            </w:pPr>
+        </w:p>
+    </w:body>
+</w:document>

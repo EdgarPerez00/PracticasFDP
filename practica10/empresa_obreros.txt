@@ -1,0 +1,3 @@
+1|Alexander|Nicolai|25|OHiggins 54|10000|3
+2|Sanchez|Alfredo|32|R Correa 1050|11000|2
+3|Valencia|Josefina|29|IC Pinto 33|12000|3

@@ -1,0 +1,23 @@
+Lectura del archivo: lenguajec.txt
+Letra Numero de ocurrencias
+a 14
+e 11
+r 11
+t 7
+i 6
+s 6
+o 6
+c 5
+m 4
+n 4
+u 4
+l 3
+d 3
+b 2
+j 2
+g 2
+p 2
+v 2
+h 1
+x 1
+y 1

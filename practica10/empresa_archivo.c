@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,6 +38,22 @@ struct Auxiliar {
     int codigo;
     char apellido[30];
 };
+
+void limpiarBuffer(void);
+void leerCadena(char *cadena, int largo);
+int siguienteCodigo(struct Obrero *obreros, int cantidad);
+struct Obrero *buscarObrero(struct Obrero *obreros, int cantidad, int codigo);
+struct Departamento *buscarDepartamento(struct Departamento *departamentos, int cantidad, int codigo);
+struct Sueldo *buscarSueldo(struct Sueldo *sueldos, int cantidad, int codigo);
+void agregarDepartamento(struct Departamento *departamentos, int *cantidadDeptos);
+void agregarObrero(struct Obrero *obreros, int *cantidadObreros, struct Sueldo *sueldos, int *cantidadSueldos);
+void listarObreros(struct Obrero *obreros, int cantidadObreros, struct Departamento *departamentos, int cantidadDeptos, struct Sueldo *sueldos, int cantidadSueldos);
+void modificarObrero(struct Obrero *obreros, int cantidadObreros);
+void eliminarObrero(struct Obrero *obreros, int cantidadObreros, struct Sueldo *sueldos, int cantidadSueldos);
+void guardarArchivos(struct Obrero *obreros, int cantidadObreros, struct Departamento *departamentos, int cantidadDeptos, struct Sueldo *sueldos, int cantidadSueldos);
+void cargarArchivos(struct Obrero *obreros, int *cantidadObreros, struct Departamento *departamentos, int *cantidadDeptos, struct Sueldo *sueldos, int *cantidadSueldos);
+void respaldarArchivo(void);
+void ejecutarEmpresaArchivo(void);
 
 void limpiarBuffer(void) {
     int c;

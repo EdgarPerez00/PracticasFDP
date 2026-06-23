@@ -1,7 +1,28 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 
 #define MAX_N 20
 #define MAX_STACK 256
+
+int euclidesRecursivo(int a, int b);
+int euclidesIterativo(int a, int b);
+int ackermannRecursivo(int m, int n);
+int ackermannIterativo(int m, int n);
+int particionRecursiva(int n, int maximo);
+int particionIterativa(int n);
+long long catalanRecursivo(int n);
+long long catalanIterativo(int n);
+long long binomialRecursivo(int n, int k);
+long long binomialIterativo(int n, int k);
+void hanoiRecursivo(int n, char origen, char auxiliar, char destino);
+void hanoiIterativo(int n);
+void ejecutarEuclides(void);
+void ejecutarAckermann(void);
+void ejecutarParticion(void);
+void ejecutarCatalan(void);
+void ejecutarBinomial(void);
+void ejecutarHanoi(void);
+void ejecutarRecursividad(void);
 
 int euclidesRecursivo(int a, int b) {
     if (b == 0) {

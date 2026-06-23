@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <ctype.h>
 #include <stdio.h>
 

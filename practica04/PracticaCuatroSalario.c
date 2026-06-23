@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 
 #define PAGO_POR_HORA 16.78

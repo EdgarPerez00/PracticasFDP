@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 
 void imprimirInicialesIG(void) {

@@ -1,200 +1,118 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 #define LIMITE 256
-void f(int entero) {
-printf("%d", entero);
+
+void imprimirEntero(int entero) {
+    printf("%d", entero);
 }
+
 int main(int argc, char *argv[]) {
-srand(time(NULL));
-// tipos de datos
-unsigned char cx = rand() % LIMITE;//90;
-unsigned char cy = rand() % LIMITE;//64;
+    unsigned char cx;
+    unsigned char cy;
+    char c;
+    short s;
+    int i;
+    long l;
+    float f;
+    double d;
 
-// variables de casteo o mutacion
-char c;
-short s;
-int i;
-long l;
-float f;
-double d;
-/***************************** CARACTERES char
-***************************/
-printf("Caracter cx: %c %d\n", cx, (int)cx);
-printf("Caracter cy: %c %d\n", cy, (int)cy );
-// Operadores Aritmeticos:
-printf("%c * %c = ", cx, cy);
-cx = (char) (cx * cy);
-printf("%c %d\n", cx, (int)cx);
-printf("%c / %c = ", cx, cy);
-cx = (char) (cx / cy);
-printf("%c\n", cx);
-printf("%c mod %c = ", cx, cy);
-cx = (char) (cx % cy);
+    (void)argc;
+    (void)argv;
 
-4
+    srand((unsigned)time(NULL));
+    cx = (unsigned char)(rand() % LIMITE);
+    cy = (unsigned char)((rand() % (LIMITE - 1)) + 1);
 
-printf("%c
-\n", cx);
-printf("%c + %c = ", cx, cy);
-cx = (char) (cx + cy);
-printf("%c
-\n", cx);
-printf("%c
+    printf("Caracter cx: %c %d\n", cx, (int)cx);
+    printf("Caracter cy: %c %d\n\n", cy, (int)cy);
 
-- %c = ", cx, cy);
+    printf("Operadores aritmeticos\n");
+    printf("%d * %d = %d\n", cx, cy, (unsigned char)(cx * cy));
+    printf("%d / %d = %d\n", cx, cy, (unsigned char)(cx / cy));
+    printf("%d mod %d = %d\n", cx, cy, (unsigned char)(cx % cy));
+    printf("%d + %d = %d\n", cx, cy, (unsigned char)(cx + cy));
+    printf("%d - %d = %d\n\n", cx, cy, (unsigned char)(cx - cy));
 
-cx = (char) (cx
-- cy);
-printf("%c
-\n", cx);
+    printf("Incrementos y decrementos\n");
+    cx++;
+    printf("cx++ = %d\n", cx);
+    cx--;
+    printf("cx-- = %d\n", cx);
+    ++cx;
+    printf("++cx = %d\n", cx);
+    --cx;
+    printf("--cx = %d\n\n", cx);
 
-cx++;
-printf("cx++ = %c
-\n", cx);
+    printf("Relacionales y logicos\n");
+    printf("cx > cy: ");
+    imprimirEntero(cx > cy);
+    printf("\n");
+    printf("cx >= cy: ");
+    imprimirEntero(cx >= cy);
+    printf("\n");
+    printf("cx < cy: ");
+    imprimirEntero(cx < cy);
+    printf("\n");
+    printf("cx <= cy: ");
+    imprimirEntero(cx <= cy);
+    printf("\n");
+    printf("cx == cy: ");
+    imprimirEntero(cx == cy);
+    printf("\n");
+    printf("cx != cy: ");
+    imprimirEntero(cx != cy);
+    printf("\n");
+    printf("!cx: ");
+    imprimirEntero(!cx);
+    printf("\n");
+    printf("cx && cy: ");
+    imprimirEntero(cx && cy);
+    printf("\n");
+    printf("cx || cy: ");
+    imprimirEntero(cx || cy);
+    printf("\n\n");
 
-cx--
-;
-printf("cx-- = %c
-\n", cx);
+    printf("Operadores de bits\n");
+    printf("~cy = %d\n", (unsigned char)(~cy));
+    printf("cx & cy = %d\n", (unsigned char)(cx & cy));
+    printf("cx | cy = %d\n", (unsigned char)(cx | cy));
+    printf("cx ^ cy = %d\n", (unsigned char)(cx ^ cy));
+    printf("cx << 1 = %d\n", (unsigned char)(cx << 1));
+    printf("cx >> 1 = %d\n\n", (unsigned char)(cx >> 1));
 
-++cx;
-printf("++cx = %c
-\n", cx);
+    printf("Asignacion compuesta\n");
+    c = (char)cx;
+    c += (char)cy;
+    printf("c += cy: %d\n", c);
+    c -= (char)cy;
+    printf("c -= cy: %d\n", c);
+    c *= (char)cy;
+    printf("c *= cy: %d\n", c);
+    if (cy != 0) {
+        c /= (char)cy;
+        printf("c /= cy: %d\n", c);
+        c %= (char)cy;
+        printf("c %%= cy: %d\n", c);
+    }
+    c <<= 1;
+    printf("c <<= 1: %d\n", c);
+    c >>= 1;
+    printf("c >>= 1: %d\n\n", c);
 
---cx;
-printf("--cx = %c
-\n", cx);
-cx = (char) +cy;
-printf("cx = +cy = %c
-\n", cx);
+    printf("Casting o mutacion\n");
+    s = (short)cx;
+    i = (int)cx;
+    l = (long)cx;
+    f = (float)cx;
+    d = (double)cx;
+    printf("short: %hd\n", s);
+    printf("int: %d\n", i);
+    printf("long: %ld\n", l);
+    printf("float: %f\n", f);
+    printf("double: %lf\n", d);
 
-cx = (char)
--cy;
-printf("cx =
--cy = %c
-\n", cx);
-// Relacionales and logicos:
-if(cx > cy) {
-printf("%c es mayor que %c
-
-\n", cx, cy);
-
-}
-if(cx >= cy) {
-printf("%c es mayor o igual que %c
-
-\n", cx, cy);
-
-}
-if(cx < cy) {
-printf("%c es menor que %c
-
-\n", cx, cy);
-
-}
-if(cx <= cy) {
-printf("%c es menor o igual que %c
-
-\n", cx, cy);
-
-}
-if(cx == cy) {
-printf("%c es igual a %c
-
-\n", cx, cy);
-
-}
-if(cx != cy) {
-printf("%c es diferente a %c
-
-\n", cx, cy);
-
-}
-//! f(!x);
-//! f(x && y);
-//! f(x || y);
-
-5
-
-// operadores de Bits:
-cx = (char) ~cy;
-printf("cx = ~cy = %c
-\n", cx);
-printf("%c & %c = ", cx, cy);
-cx = (char) (cx & cy);
-printf("%c
-\n", cx);
-printf("%c | %c = ", cx, cy);
-cx = (char) (cx | cy);
-printf("%c
-\n", cx);
-printf("%c ^ %c = ", cx, cy);
-cx = (char) (cx ^ cy);
-printf("%c
-\n", cx);
-printf("%c << 1 = ", cx);
-cx = (char) (cx << 1);
-printf("%c
-\n", cx);
-printf("%c >> 1 = ", cx);
-cx = (char) (cx >> 1);
-printf("%c
-\n", cx);
-// Asignacion compuesta:
-printf("%c += %c = ", cx, cy);
-cx += cy;
-printf("%c
-\n", cx);
-printf("%c
-
--= %c = ", cx, cy);
-
-cx
--= cy;
-printf("%c
-\n", cx);
-printf("%c *= %c = ", cx, cy);
-cx *= cy;
-printf("%c
-\n", cx);
-printf("%c /= %c = ", cx, cy);
-cx /= cy;
-printf("%c
-\n", cx);
-
-printf("%c mod= %c = ", cx, cy);
-cx %= cy;
-printf("%c
-\n", cx);
-
-6
-
-printf("%c <<= 1 = ", cx);
-cx <<= 1;
-printf("%c\n", cx);
-printf("%c >>= 1 = ", cx);
-cx >>= 1;
-printf("%c\n", cx);
-printf("%c &= %c = ", cx, cy);
-cx &= cy;
-printf("%c\n", cx);
-printf("%c ^= %c = ", cx, cy);
-cx ^= cy;
-printf("%c\n", cx);
-printf("%c |= %c = ", cx, cy);
-cx |= cy;
-printf("%c\n", cx);
-// Casting o mutacion
-s = (short) cx;
-printf("%d\n", s);
-i = (int) cx;
-printf("%d\n", i);
-l = (long) cx;
-printf("%ld\n", l);
-f = (float) cx;
-printf("%f\n", f);
-d = (double) cx;
-printf("%lf\n", d);
-return 0;
+    return 0;
 }

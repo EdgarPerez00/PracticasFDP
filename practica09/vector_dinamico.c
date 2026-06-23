@@ -1,8 +1,17 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 #define TAMANIO 50
+
+void llenarManual(int *vector, int *tamanio);
+void llenarAleatorio(int *vector, int *tamanio);
+void mostrarVector(int *vector, int *tamanio);
+void buscarNumero(int *vector, int *tamanio, int *buscado, int *encontrados);
+void ordenarAscendente(int *vector, int *tamanio);
+void ordenarDescendente(int *vector, int *tamanio);
+void ejecutarVector(void);
 
 void llenarManual(int *vector, int *tamanio) {
     int *ptr = vector;

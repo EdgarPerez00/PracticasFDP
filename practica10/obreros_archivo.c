@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,6 +26,14 @@ struct Obrero {
     long sueldoBase;
     int activo;
 };
+
+void limpiarBuffer(void);
+void leerCadena(char *cadena, int largo);
+void agregarObrero(struct Obrero *obreros, int *cantidad);
+void listarObreros(struct Obrero *obreros, int cantidad);
+void guardarArchivo(struct Obrero *obreros, int cantidad);
+void cargarArchivo(struct Obrero *obreros, int *cantidad);
+void ejecutarObrerosArchivo(void);
 
 void limpiarBuffer(void) {
     int c;

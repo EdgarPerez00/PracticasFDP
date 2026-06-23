@@ -1,14 +1,14 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #define MAX_TEXTO 2200
 
-struct ResultadoModificacion {
-    char original[MAX_TEXTO];
-    char modificado[MAX_TEXTO];
-    int reemplazos;
-};
+void cargar(int *ptrLongitud, char *texto);
+void modificar(char *ptrTexto, int longitud, char buscado, char reemplazo, char *nuevoTexto);
+void contar(char *ptrTexto, int longitud, char caracter, int *ptrCuantos);
+void buscar(char *ptrTexto, int longitud, char *buscado);
+void imprimirResultado(char *textoOriginal, char *textoModificado, int reemplazos);
+void ejecutarMenu(char *texto, int longitud);
 
 void cargar(int *ptrLongitud, char *texto) {
     int c;
@@ -27,15 +27,10 @@ void cargar(int *ptrLongitud, char *texto) {
     *ptr = '\0';
 }
 
-char *modificar(char *ptrTexto, int longitud, char buscado, char reemplazo) {
-    char *nuevoTexto = (char *)malloc((size_t)longitud + 1);
+void modificar(char *ptrTexto, int longitud, char buscado, char reemplazo, char *nuevoTexto) {
     char *origen = ptrTexto;
     char *destino = nuevoTexto;
     int i;
-
-    if (nuevoTexto == NULL) {
-        return NULL;
-    }
 
     for (i = 0; i < longitud; i++) {
         if (*origen == buscado) {
@@ -47,7 +42,6 @@ char *modificar(char *ptrTexto, int longitud, char buscado, char reemplazo) {
         destino++;
     }
     *destino = '\0';
-    return nuevoTexto;
 }
 
 void contar(char *ptrTexto, int longitud, char caracter, int *ptrCuantos) {
@@ -80,10 +74,10 @@ void buscar(char *ptrTexto, int longitud, char *buscado) {
     printf("El caracter no existe en el texto.\n");
 }
 
-void imprimirResultado(struct ResultadoModificacion resultado) {
-    printf("\nTexto original:\n%s\n", resultado.original);
-    printf("\nTexto modificado:\n%s\n", resultado.modificado);
-    printf("Cantidad de reemplazos: %d\n", resultado.reemplazos);
+void imprimirResultado(char *textoOriginal, char *textoModificado, int reemplazos) {
+    printf("\nTexto original:\n%s\n", textoOriginal);
+    printf("\nTexto modificado:\n%s\n", textoModificado);
+    printf("Cantidad de reemplazos: %d\n", reemplazos);
 }
 
 void ejecutarMenu(char *texto, int longitud) {
@@ -102,25 +96,16 @@ void ejecutarMenu(char *texto, int longitud) {
         if (opcion == 1) {
             char buscado;
             char reemplazo;
-            char *nuevoTexto;
-            struct ResultadoModificacion resultado;
+            char nuevoTexto[MAX_TEXTO];
+            int reemplazos;
 
             printf("Caracter a reemplazar: ");
             scanf(" %c", &buscado);
             printf("Caracter de reemplazo: ");
             scanf(" %c", &reemplazo);
-            contar(texto, longitud, buscado, &resultado.reemplazos);
-            nuevoTexto = modificar(texto, longitud, buscado, reemplazo);
-            if (nuevoTexto == NULL) {
-                printf("No se pudo reservar memoria.\n");
-                continue;
-            }
-            strncpy(resultado.original, texto, MAX_TEXTO - 1);
-            resultado.original[MAX_TEXTO - 1] = '\0';
-            strncpy(resultado.modificado, nuevoTexto, MAX_TEXTO - 1);
-            resultado.modificado[MAX_TEXTO - 1] = '\0';
-            imprimirResultado(resultado);
-            free(nuevoTexto);
+            contar(texto, longitud, buscado, &reemplazos);
+            modificar(texto, longitud, buscado, reemplazo, nuevoTexto);
+            imprimirResultado(texto, nuevoTexto, reemplazos);
         } else if (opcion == 2) {
             char caracter;
             int cuantos;

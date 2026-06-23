@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <math.h>
 #include <stdio.h>
 

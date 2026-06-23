@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -14,7 +15,6 @@ int main(int argc, char *argv[]) {
     char c;
     short s;
     int i, vuelta;
-    long l, recorrido;
     long l, recorrido;
     float f_var;
     double d;

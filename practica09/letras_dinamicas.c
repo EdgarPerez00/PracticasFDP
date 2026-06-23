@@ -1,9 +1,17 @@
+//Edgar Israel Perez Garcia
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MIN_TEXTO 1000
 #define LETRAS 26
+
+void reservarMemoria(char **letras, int **conteos);
+void inicializarLetras(char *letras);
+void leerYContar(int *conteos);
+void ordenarPorFrecuencia(char *letras, int *conteos);
+void imprimirResultados(char *letras, int *conteos);
+void ejecutarLetras(void);
 
 void reservarMemoria(char **letras, int **conteos) {
     *letras = (char *)malloc(sizeof(char) * LETRAS);

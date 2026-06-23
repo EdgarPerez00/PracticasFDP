@@ -1,6 +1,12 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 
 #define MAX 30
+
+void leerArreglo(int *arreglo, int *cantidad);
+void buscarDesordenados(int *arreglo, int cantidad, int **desordenados, int *totalDesordenados);
+void mostrarDesordenados(int *arreglo, int **desordenados, int totalDesordenados);
+void ejecutarPrograma(void);
 
 void leerArreglo(int *arreglo, int *cantidad) {
     int valor;

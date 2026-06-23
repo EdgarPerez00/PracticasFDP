@@ -1,0 +1,22 @@
+Reporte de estudiantes
+Total: 2
+
+Estudiante 1
+Boleta: B010
+Nombre: Carlos Ruiz
+Matematicas: 9.00
+Programacion: 9.00
+Ingles: 9.00
+Discretas: 9.00
+Comunicacion oral y escrita: 9.00
+Promedio: 9.00
+
+Estudiante 2
+Boleta: B011
+Nombre: Sofia Diaz
+Matematicas: 8.00
+Programacion: 7.00
+Ingles: 9.00
+Discretas: 10.00
+Comunicacion oral y escrita: 6.00
+Promedio: 8.00

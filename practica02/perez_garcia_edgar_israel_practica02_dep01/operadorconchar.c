@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
     signed char cx = rand() % MAX_CHAR;
     signed char cy = rand() % MAX_CHAR;
 
+
     char c;
     short s;
     int i, vuelta;

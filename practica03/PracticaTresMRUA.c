@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 
 #define ACELERACION_GRAVEDAD 32.0

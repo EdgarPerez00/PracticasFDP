@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+//Edgar Israel Perez Garcia
+#include <limits.h>
+>>>>>>> 548b6988b379e64e1c0118a6b7c9ee42c4c945a9
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,6 +6,13 @@
 
 #define LETRAS 26
 #define LARGO_ARCHIVO 80
+
+int terminaConTxt(const char *nombre);
+void inicializar(char *letras, int *conteos);
+void contarArchivo(FILE *entrada, int *conteos);
+void ordenar(char *letras, int *conteos);
+void escribirResultados(FILE *salida, char *letras, int *conteos, const char *entrada, const char *nombreSalida);
+void ejecutarConteoArchivo(void);
 
 int terminaConTxt(const char *nombre) {
     size_t largo = strlen(nombre);

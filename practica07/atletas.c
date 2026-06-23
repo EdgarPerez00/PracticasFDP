@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <string.h>
 
@@ -17,6 +18,16 @@ struct Atleta {
     int numeroMedallas;
     int activo;
 };
+
+void limpiarBuffer(void);
+void leerCadena(char *cadena, int largo);
+void leerAtleta(struct Atleta *atletas, int *cantidad);
+struct Atleta *buscarAtleta(struct Atleta *atletas, int cantidad, const char *nombre);
+void imprimirAtleta(struct Atleta *atleta);
+void atletaConMasMedallas(struct Atleta *atletas, int cantidad);
+void modificarAtleta(struct Atleta *atletas, int cantidad);
+void listarAtletas(struct Atleta *atletas, int cantidad);
+void ejecutarAtletas(void);
 
 void limpiarBuffer(void) {
     int c;

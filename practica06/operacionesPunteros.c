@@ -1,9 +1,11 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 
 void sumar(int a, int b, int *ptr);
 void dividir(int a, int b, float *ptr);
 int * multiplicar(int a, int b);
 int * restar(int a, int b);
+void mostrarResultado(int a, int b, int suma, float division, int multiplicacion, int resta);
 
 void mostrarResultado(int a, int b, int suma, float division, int multiplicacion, int resta) {
     printf("\nOperaciones con los números %d y %d:\n", a, b);

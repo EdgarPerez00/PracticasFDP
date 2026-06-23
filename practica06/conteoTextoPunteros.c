@@ -1,9 +1,19 @@
+//Edgar Israel Perez Garcia
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
 #define MAX_TEXTO 1800
 #define MAX_LINEAS 6
+
+void cargar(char *texto);
+void esVocal(char caracter, int *ptrContador);
+int esConsonante(char caracter);
+void contarVocales(char *texto);
+void contarConsonantes(char *texto);
+void contarEspeciales(char *texto);
+void contarBlancos(char *texto);
+void ejecutarMenu(char *texto);
 
 void cargar(char *texto) {
     char linea[320];

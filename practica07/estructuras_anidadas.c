@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <string.h>
 
@@ -19,6 +20,16 @@ struct Registro {
     struct DatosLaborales laborales;
     int activo;
 };
+
+void limpiarBuffer(void);
+void leerCadena(char *cadena, int largo);
+struct Registro *buscarRegistro(struct Registro *registros, int cantidad, const char *nombre);
+void altaRegistro(struct Registro *registros, int *cantidad);
+void imprimirRegistro(struct Registro *registro);
+void listarRegistros(struct Registro *registros, int cantidad);
+void modificarRegistro(struct Registro *registros, int cantidad);
+void bajaRegistro(struct Registro *registros, int cantidad);
+void ejecutarEstructurasAnidadas(void);
 
 void limpiarBuffer(void) {
     int c;

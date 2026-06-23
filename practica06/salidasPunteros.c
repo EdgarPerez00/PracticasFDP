@@ -1,4 +1,7 @@
+//Edgar Israel Perez Garcia
 #include<stdio.h>
+
+void imprimirSalida(int arreglo[]);
 
 void imprimirSalida(int arreglo[]) {
     int *p;

@@ -1,3 +1,4 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <string.h>
 
@@ -12,6 +13,19 @@ struct Empleado {
     float sueldo;
     int activo;
 };
+
+void limpiarBuffer(void);
+void leerCadena(char cadena[], int largo);
+void leerEmpleado(struct Empleado empleados[], int *cantidad);
+int buscarEmpleado(struct Empleado empleados[], int cantidad, const char nombre[]);
+void imprimirEmpleado(struct Empleado empleado);
+void imprimirMayorMenorSueldo(struct Empleado empleados[], int cantidad);
+void buscarEImprimir(struct Empleado empleados[], int cantidad);
+void modificarEmpleado(struct Empleado empleados[], int cantidad);
+void verProgramadores(struct Empleado empleados[], int cantidad);
+void darBaja(struct Empleado empleados[], int cantidad);
+void listarEmpleados(struct Empleado empleados[], int cantidad);
+void ejecutarEmpresa(void);
 
 void limpiarBuffer(void) {
     int c;

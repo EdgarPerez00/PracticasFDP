@@ -1,3 +1,5 @@
 #ingnora los archivos ejecutables
 *.exe
 *.o
+*.bin
+*.pdf

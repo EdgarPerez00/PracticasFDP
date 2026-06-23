@@ -1,5 +1,12 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
 #include <stdlib.h>
+
+void reservarArreglo(int **arreglo, int *tamanio);
+void leerArreglo(int *arreglo, int *tamanio);
+void sumarArreglo(int *arreglo, int *tamanio, int *suma);
+void imprimirResumen(int *arreglo, int *tamanio, int *suma);
+void ejecutarModularidad(void);
 
 void reservarArreglo(int **arreglo, int *tamanio) {
     printf("Cantidad de datos: ");

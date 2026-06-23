@@ -1,0 +1,153 @@
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Boleta: Nombre: Matematicas: Programacion: Ingles: Discretas: Comunicacion oral y escrita: Estudiante registrado en la posicion 0.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Boleta: Nombre: Matematicas: Programacion: Ingles: Discretas: Comunicacion oral y escrita: Estudiante registrado en la posicion 1.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: 
+Posicion: 0
+Boleta: B001
+Nombre: Ana Lopez
+Matematicas: 10.00
+Programacion: 9.00
+Ingles: 8.00
+Discretas: 7.00
+Comunicacion oral y escrita: 6.00
+
+Posicion: 1
+Boleta: B002
+Nombre: Luis Perez
+Matematicas: 5.00
+Programacion: 6.00
+Ingles: 7.00
+Discretas: 8.00
+Comunicacion oral y escrita: 9.00
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Boleta a buscar: 
+Posicion: 0
+Boleta: B001
+Nombre: Ana Lopez
+Matematicas: 10.00
+Programacion: 9.00
+Ingles: 8.00
+Discretas: 7.00
+Comunicacion oral y escrita: 6.00
+Promedio: 8.00
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Boleta del estudiante a modificar: Nuevo nombre: Matematicas: Programacion: Ingles: Discretas: Comunicacion oral y escrita: Estudiante modificado.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Boleta del estudiante a eliminar: Estudiante eliminado. La posicion 0 queda disponible.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Boleta: Nombre: Matematicas: Programacion: Ingles: Discretas: Comunicacion oral y escrita: Estudiante registrado en la posicion 0.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Nombre del archivo .bin: Archivo guardado con 2 posiciones y 2 estudiantes activos.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: Nombre del archivo .bin: Archivo cargado. Siguiente registro nuevo parte desde la posicion 2 si no hay huecos.
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: 
+Posicion: 0
+Boleta: B003
+Nombre: Maria Garcia
+Matematicas: 10.00
+Programacion: 10.00
+Ingles: 10.00
+Discretas: 10.00
+Comunicacion oral y escrita: 10.00
+
+Posicion: 1
+Boleta: B002
+Nombre: Luis Perez Modificado
+Matematicas: 7.00
+Programacion: 7.00
+Ingles: 7.00
+Discretas: 7.00
+Comunicacion oral y escrita: 7.00
+
+1. Registrar estudiante
+2. Mostrar estudiantes
+3. Buscar estudiante
+4. Modificar estudiante
+5. Eliminar estudiante
+6. Guardar en archivo binario
+7. Cargar desde archivo binario
+8. Salir
+Opcion: 

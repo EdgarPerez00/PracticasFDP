@@ -1,5 +1,5 @@
+//Edgar Israel Perez Garcia
 #include <stdio.h>
-#include <stdlib.h> 
 #include <math.h>
 
 // Constantes 
@@ -11,9 +11,9 @@
 #define MARCADOR_NULO -99.9
 
 // Punteros para los arreglos dinámicos
-float *temperaturas;
-float *velocidades;
-float **tablaSensacion; 
+float temperaturas[MAX_T_IDX];
+float velocidades[MAX_V_IDX];
+float tablaSensacion[MAX_V_IDX][MAX_T_IDX];
 char *riesgos[] = {"Riesgo de enfriamiento moderado", "Riesgo de enfriamiento grave", "Riesgo de enfriamiento extremo"};
 
 // Formula corregida 
@@ -50,20 +50,6 @@ void poblarTablaSensacion() {
 
 // funcion para configurar y poblar todos los datos
 void configurarDatosIniciales() {
-    // Asignacion de memoria para los arreglos
-    temperaturas = (float *)malloc(MAX_T_IDX * sizeof(float));
-    velocidades = (float *)malloc(MAX_V_IDX * sizeof(float));
-    tablaSensacion = (float **)malloc(MAX_V_IDX * sizeof(float *));
-    for (int i = 0; i < MAX_V_IDX; i++) {
-        tablaSensacion[i] = (float *)malloc(MAX_T_IDX * sizeof(float));
-    }
-
-    // Comprobacion de que la memoria fue asignada
-    if (temperaturas == NULL || velocidades == NULL || tablaSensacion == NULL) {
-        printf("Error: No se pudo asignar memoria.\n");
-        exit(1);
-    }
-    
     // Llenar los arreglos con los datos
     poblarTemperaturas();
     poblarVelocidades();
@@ -179,20 +165,9 @@ void mostrarMenu() {
     } while (opcion != 3);
 }
 
-// funcion para liberar memoria
-void liberarMemoria() {
-    free(temperaturas);
-    free(velocidades);
-    for (int i = 0; i < MAX_V_IDX; i++) {
-        free(tablaSensacion[i]);
-    }
-    free(tablaSensacion);
-}
-
 // funcion principal
-int main(int argc, char *argv[]) {
+int main(void) {
     configurarDatosIniciales();
     mostrarMenu();
-    liberarMemoria();
     return 0;
 }
